@@ -21,8 +21,8 @@ const Navbar = () => {
                         Carts
                     </Link>
                 </nav>
-                <button className="button bg-blue-600 text-white border-transparent hover:border-blue-600 hover: border-blue-600 hover:bg-transparent hover:text-black">Log in</button>
-                <button className="button bg-transparent text-black border-blue-600 hover:border-transparent hover:bg-blue-600 hover:text-white">Sign up</button>
+                <Link href={"/auth/login"} className="button bg-blue-600 text-white border-transparent hover:border-blue-600 hover: border-blue-600 hover:bg-transparent hover:text-black">Log in</Link>
+                <Link href={"/auth/register"} className="button bg-transparent text-black border-blue-600 hover:border-transparent hover:bg-blue-600 hover:text-white">Sign up</Link>
             </div>
         </header>
     );
