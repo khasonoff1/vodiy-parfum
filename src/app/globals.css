@@ -7,3 +7,9 @@
         @apply border px-5 md:px-10 py-2.5 rounded font-semibold transition duration-200 ease-out;
     }
 }
+
+.category-image{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}

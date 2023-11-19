@@ -12,57 +12,56 @@ const CategoriesCarusel = () => {
         getAllCategories();
     }, [getAllCategories]);
     let settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        dots: false,
+        infinite: true,
+        speed: 700,
+        slidesToShow: 6,
+        slidesToScroll: 6,
         initialSlide: 0,
         responsive: [
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
                     infinite: true,
-                    dots: true,
+                    dots: false,
                 },
             },
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
                     initialSlide: 2,
                 },
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                 },
             },
         ],
     };
     return (
-        <section className="flex flex-col space-y-12">
+        <section className="flex flex-col space-y-12 mb-20">
             <h1 className="text-white text-6xl font-semibold:">Categories: {category.length}</h1>
-            <div className="flex flex-wrap -m-4 justify-center">
+            <div className="flex-none">
                 <Slider {...settings}>
                     {category.map((categories) => (
-                        <Link key={categories?._id} href={"/"}>
-                            <div className="">
+                        <Link key={categories?._id} href={"/all-products"}>
+                            <div className="flex item-center justify-center w-full text-center">
                                 <Image
+                                    className="category-image"
                                     src={categories?.image?.url}
                                     alt={categories?.name}
-                                    fill
-                                    className="rounded-full"
+                                    width={180}
+                                    height={180}
                                 />
                             </div>
-                            <div className="">
-                                <p className="text-white">{categories?.name}</p>
-                            </div>
+                            <p className="text-center text-xl text-white">{categories?.name}</p>
                         </Link>
                     ))}
                 </Slider>
