@@ -1,25 +1,37 @@
 import request from "@/server";
-import Product from "@/types/products";
+import UniversalData from "@/types/universalData";
 import { create } from "zustand";
 
-interface LastestProductsType {
-    loading: boolean;
-    latestProducts: Product[];
-    getLatestProducts: () => void;
+interface initialState {
+  latestProducts: UniversalData[];
+  categories: UniversalData[];
+  loading: boolean;
+  getLatestProducts: () => void;
+  getAllCategories: () => void;
 }
 
-const useLastestProducts = create<LastestProductsType>()((set, get) => ({
-    loading: false,
-    latestProducts: [],
-    getLatestProducts: async () => {
-        const { data } = await request.get("last-products")
-        set({ latestProducts: data })
-        try {
-            set({loading: true})
-        } finally {
-            set({loading: false})        
-        }
+const useGetData = create<initialState>()((set) => ({
+  latestProducts: [],
+  categories: [],
+  loading: false,
+  getLatestProducts: async () => {
+    try {
+      set({ loading: true });
+      const { data } = await request.get<UniversalData[]>("last-products");
+      set({ latestProducts: data });
+    } finally {
+      set({ loading: false });
     }
-}))
+  },
+  getAllCategories: async () => {
+    try {
+      set({ loading: true });
+      const { data } = await request.get<UniversalData[]>("category");
+      set({ categories: data });
+    } finally {
+      set({ loading: false });
+    }
+  },
+}));
 
-export default useLastestProducts
+export default useGetData;
