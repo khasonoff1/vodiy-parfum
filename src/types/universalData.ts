@@ -1,16 +1,24 @@
 interface UniversalData {
-    _id: string;
-    title: string;
+  _id: string;
+  title: string;
+  name: string;
+  price: number;
+  description: string;
+  quantity: number;
+  category: {
     name: string;
-    price: number;
-    image: {
-      url: string;
-    };
-    description: string;
-    quantity: number;
-    category: string;
-    sold: number;
-    newQuantity: number;
-  }
-  
-  export default UniversalData;
+  };
+  image: {
+    url: string | undefined;
+  };
+  createdAt: string;
+  sold: number;
+  newQuantity: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  phoneNumber: string;
+  password: string;
+}
+
+export default UniversalData;

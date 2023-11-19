@@ -39,7 +39,7 @@ const useAuth = create<initialState>()((set) => ({
         router.push("/");
         toast.success("Muvaffaqqiyatli Kirish");
       } else {
-        router.push("/admin/dashboard");
+        router.push("/admin");
         toast.success("Muvaffaqqiyatli Kirish");
       }
     } finally {
