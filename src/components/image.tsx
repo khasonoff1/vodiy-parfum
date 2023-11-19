@@ -4,6 +4,7 @@ import React, { FC, Fragment, useState } from "react";
 import Image from "next/image";
 import { handleImageError } from "@/utils/imageErrorHandler";
 import UniversalData from "@/types/universalData";
+import { Skeleton } from "@mui/material";
 
 interface Props {
     product: UniversalData;
@@ -14,7 +15,7 @@ const CustomImage: FC<Props> = ({ product, fill }) => {
     const [isLoading, setIsLoading] = useState(true);
     return (
         <Fragment>
-            {fill ? (
+            {/* {fill ? (
                 <Image
                     src={product?.image?.url}
                     alt={product?.title}
@@ -40,6 +41,20 @@ const CustomImage: FC<Props> = ({ product, fill }) => {
                     onError={(e) => handleImageError(e)}
                     onLoadingComplete={() => setIsLoading(false)}
                 />
+            )} */}
+            {fill ? (
+                <Image
+                    src={product?.image?.url}
+                    alt={product?.title}
+                    fill
+                    className={`object-contain duraction-700 ease-in-out group-hover:opacity-75 ${
+                        isLoading ? "scale-110 blur-2xl grayscale" : "scale-100 blur-0 grayscale-0"
+                    }`}
+                    onError={(e) => handleImageError(e)}
+                    onLoadingComplete={() => setIsLoading(false)}
+                />
+            ) : (
+                <Skeleton variant="rectangular" width={210} height={118} />
             )}
         </Fragment>
     );

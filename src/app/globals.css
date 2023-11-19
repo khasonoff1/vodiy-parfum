@@ -8,6 +8,15 @@
     }
 }
 
+@media (max-width: 600px) {
+    .header-box{
+        display: none;
+    }
+    .bars{
+        display: block;
+    }
+}
+
 .category-image{
     width: 180px;
     height: 180px;

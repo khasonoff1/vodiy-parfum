@@ -21,7 +21,7 @@ const LatestProducts = () => {
                         key={product?._id}
                         href={"all-products"}
                         className="xl:w-1/4 md:w-1/2 p-4">
-                        <div className="h-80 flex flex-col bg-white p-6 rounded-lg group hover:scale-105 transition-transform ease-out duration-200 border">
+                        <div className="h-80 flex flex-col p-6 rounded-lg group hover:scale-105 transition-transform ease-out duration-500 border-2 border-blue-950 bg-blue-300">
                             <div className="relative max-h-80 flex item-center justify-center rounded w-full mb-6 flex-1">
                                 <CustomImage product={product} fill />
                             </div>

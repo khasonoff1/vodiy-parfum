@@ -52,9 +52,9 @@ const CategoriesCarusel = () => {
                 <Slider {...settings}>
                     {category.map((categories) => (
                         <Link key={categories?._id} href={"/all-products"}>
-                            <div className="flex item-center justify-center w-full text-center">
+                            <div className="relative flex item-center justify-center w-full text-center">
                                 <Image
-                                    className="category-image"
+                                    className="category-image transition-transform duration-500 hover:scale-75"
                                     src={categories?.image?.url}
                                     alt={categories?.name}
                                     width={180}
