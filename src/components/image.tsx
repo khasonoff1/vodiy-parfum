@@ -1,12 +1,12 @@
 "use client";
 
 import React, { FC, Fragment, useState } from "react";
-import Product from "@/types/products";
 import Image from "next/image";
 import { handleImageError } from "@/utils/imageErrorHandler";
+import UniversalData from "@/types/universalData";
 
 interface Props {
-    product: Product;
+    product: UniversalData;
     fill?: boolean;
 }
 
