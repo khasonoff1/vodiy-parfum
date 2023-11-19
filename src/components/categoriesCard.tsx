@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Slider from "react-slick";
 import { useEffect, useState } from "react";
 import useGetData from "@/zustand";
 import Image from "next/image";
+import Slider from "react-slick";
 
 const CategoriesCarusel = () => {
     const { categories: category, getAllCategories, loading } = useGetData();
